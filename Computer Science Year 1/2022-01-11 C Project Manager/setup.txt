@@ -1,0 +1,13 @@
+Welcome to the project manager tool!
+In order to use the tool, first run this command:
+
+chmod u+x Makefile.sh
+./Makefile.sh
+
+After using this once, you can access the main commands:
+-pmwrite
+-pm
+-pmgit
+-Without having to use './'.
+
+You may type 'pm instructions' to see the full list of commands. More may be added eventually.

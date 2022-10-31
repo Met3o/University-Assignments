@@ -1,0 +1,71 @@
+-COMMANDS LIST-
+__________________________
+
+-TYPES-
+'pmwrite' - mainly for file manipulation
+'pmgit' - git features
+'pm' - mainly for folder manipulation
+
+--------------------------
+
+pmwrite:
+'pmwrite pm <command> <variables+>'
+LIST:
+
+write
+'pmwrite write <name>'
+
+copy
+'pmwrite copy <original> <destination>
+
+rename
+'pmwrite rename <original> <newName>'
+
+
+So 'pmwrite write Hello' will nano the file called Hello.
+
+--------------------------
+
+pmgit:
+'pmgit <command> <variables+>'
+LIST:
+
+init
+'pmgit init <name>'
+
+add
+'pmgit add <file>'
+
+commit
+'pmgit commit "<string>"'
+
+push
+'pmgit push <>'
+
+name
+'pmgit name <your_names>'
+
+email
+'pmgit email <youremail>'
+---------------------------
+
+pmfolder:
+'pmfolder <command> <variables+>'
+
+checkdir
+'pmfolder checkdir <dirname>' 
+
+makedir
+'pmfolder makedir <dirname>'
+
+deletedir
+'pmfolder deletedir <dirname>'
+
+deletedirP (is recursive)
+'pmfolder deletedirP <dirname>'
+
+subfolderSearch
+'pmfolder subfoldersearch'
+
+currentfolderSearch
+'pmfolder currentfoldersearch'
