@@ -1,0 +1,92 @@
+Bash results for the Week 4+ exercise.
+
+NOTE: All steps will be listed, however results for simple commands like mkdir and ls will not be documented
+in detail here as they already were fully in the previous bashes and it is obvious what they are going to
+do at this point, unless I am experimenting with them to return a specified type of result.
+
+0) cd ~ (As was in the portfolio/week3/vectors directory from bash3)
+
+1) cd portfolio
+
+2) git switch master
+
+3) mkdir -p week4/framework
+
+4) cd week4/framework
+
+5) git branch framework
+
+6) git switch framework
+
+7) nano Makefile
+
+Prediction: Provide a command line facility to write a file.
+Actual: Correct, provided a full setup for writing to a file called Makefile.
+Action: C commands appended.
+
+8) cat -vTE Makefile
+
+Prediction: Method for editing or reading Makefile. Used for checking whitespace?
+Actual: Checks whitespace and tabs but does not indicate the tab presence?
+Post-Comments: Ah well probably just a system problem let's move on.
+EDIT: Turns out instead of typing "<tab>" manually, I just needed to use the tab KEY for whitespace.
+Actual Result: Success.
+
+9) make feature NAME=test_output
+
+Prediction: "Create a new feature whose name is test_output."
+Result: '<Error name.> Stop.' Um, ok?
+Actual Result: After 8) corrected, this returned some output but yielded a "cannot create bin" and
+"cannot create lib" error about nonexistent directories, presumably relaed to the presence of these in the Makefile.
+However a quick ls command confirmed that test_output was created successfully.
+
+10) ls -al test_output
+
+Prediction: List the contents of test_output
+Actual: Correct. Returned "bin config doc lib src test"
+
+11) git add Makefile
+
+12) git commit -m "Setting up Makefile to create feature folders"
+
+13) git push
+
+14) cd test_output; cd src
+
+15) Commands used: "nano test_outputs.c".
+Post-Comments: This took me an hour to write!
+
+16) gcc -Wall -pedantic test_outputs.c -o test_outputs
+
+Prediction: Will compile test_outputs.c into a callable command???
+Actual: No, wrong command. Instead, this one attempted to run the code (and received
+some errors; https://snipboard.io/uR5dkK.jpg). The fatal ones related to brackets and syntax mostly.
+Fixing these only led to MORE errors https://snipboard.io/3nlvC8.jpg, which were solved using
+'grep' to ensure that the number of '{'s and '}'s remained the SAME.
+Turns out that the PDF has an error; there is one too many '}'s (8 instead of 7).
+
+17) ./test_outputs file_does_not_exist
+Options: Error; no error
+Expected: Error.
+Actual: 'Error opening file_does_not_exist'
+
+18) ./test_outputs
+
+Options: Error; no error
+Expected: Error
+Actual: 'Error opening file (null)'
+
+19) commands used: nano op_test "<c commands>"
+
+20) ./test_outputs op_test
+
+Prediction:, Well, something.
+Actual: Errors; 'invalid option'
+
+21) git add test_outputs.c
+
+22) git add op_test
+
+23) git commit -m "test framework and sample test suite"
+
+24) git push

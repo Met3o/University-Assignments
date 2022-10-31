@@ -1,0 +1,279 @@
+Bash results for the week 2 git exercise.
+
+1) cd ~
+
+Prediction: Will go to the root directory, top-most.
+Actual: No real change, simply executed with no output. Working directory was not changed.
+
+2) git init portfolio
+
+Prediction: Perhaps create some external effect?
+Actual: Returned 'Initialised git repository in home/student/portfolio/.git' which implies
+that something has been done.
+Post-Comments: Had to run the command again, in which case the message is the same but reinitialised.
+              -Will have to recheck the repository to see what actual action has yielded a result:
+
+3) cd portfolio
+
+Prediction: Will change to the portfolio directory. This is a simple one.
+Actual: Correct.
+
+4) ls -al
+
+Prediction: List all current directory files.
+Actual: Exhaustively listed all contents of the student directory (I think?) including metadata
+such as user permissions, date modified, and total amount (16).
+
+5) git status
+
+Prediction: Will return some form of a status message. Perhaps related to the git server.
+Actual: Returned info on the master branch git library, saying that there are currently
+no commits.
+
+6) echo hello > .gitignore
+
+Prediction: Will return a Boolean value as '>' is an operator.
+Actual: Nothing returned.
+
+7) git add -A
+
+Prediction: None
+Actual: Nothing returned, presumably did processing
+
+8) git status
+
+Prediction: Will return some status, perhaps of the server or api.
+Actual:
+      '
+      changes to be committed:
+
+      (use "git rm --cached <file>..." to unstage)
+
+              new file: .gitignore
+      '
+
+9) git config --global user.email "yf013556@student.reading.ac.uk"
+
+Prediction: Configure the global user to be me, using my email, as a variable.
+Actual: Presumably successful, returned no value though.
+
+10) git config –global user.name "Imole Adebayo"
+
+Prediction: Same as above, will set a global variable to be "Imole Adebayo". No output.
+Pre-Comments: More of a meta, but the double-length hyphen "–" is likely a typo and meant double hyphen "--".
+Since I cannot type this on my keyboard, and I cannot 'paste' into the virtual machine command-line,
+this would be impossible to use anyway.
+Actual: Presumed success.
+
+11 12 13)
+git commit -m "first commit, adding week 1 content"
+git status
+git push
+
+Predictions:
+      11) Will initialise a csgitlab(?) commit for confirmation.
+      12) Will return the status, like step 8) and step 5).
+      13) Will push the commit and cause the result to be loadable.
+Actual:
+      11)
+      '
+      [master (root-commit) 275c139] first commit, adding week 1 content
+       one file changed, one insertion (+)
+       changed file 100644, .gitignore
+      '
+      12)
+      Returned the same as 8):
+      '
+      On branch master
+      nothing to commit, working tree clean'
+      13)
+      '
+      fatal: The current master has no upstream branch.
+      To push the current branch and set the remote as upstream, use
+
+        git push --set upstream origin master'
+Post-Comments: Really, I have no idea if these errors are supposed to happen or if it is a self-fault
+error. Will have to find out...
+-EDIT: These errors have disappeared after redoing the whole exercise post-freeing up memory.
+
+14) git remote add origin https://csgitlab.reading.ac.uk/yf013556/cs1pc20_portfolio.git
+
+Prediction: Something something API something
+Actual: fatal: 'remote origin already exists.' Hmmm...
+
+15) git push --set-upstream
+
+Prediction: Probably some error like the last few git updates.
+Actual: Correct 😔
+'fatal: The current branch master has no upstream branch.
+
+To push the current branch and set the remote as upstream, use
+
+git push --set-upstream origin master'. Same as 13).
+
+EDIT (After doing step 20): WAIT WHY DID I NOT DO THIS CORRECTLY?!
+Final: asked for prompt to enter uni details. I.e. username and password.
+Now I feel dumb.
+
+16) git status
+
+Prediction: Return status, same as 5), 8), and 12).
+Actual: Correct.
+"
+On branch master
+Your branch is up-to-date with 'origin/master.'
+
+nothing to commit, working tree clean"
+
+17) echo "# CS1PC20" > readme.md
+
+Prediction: Perhaps search for readme.md and return it?
+Actual: Presumably nothing.
+
+18) git add readme.md
+
+Prediction: Will create readme.md in the repository.
+Actual: Appears so.
+'
+[Master 8be2399] added readme file'
+
+19) git commit -m "added readme file"
+
+Prediction: No function in command line, but will commit this message to the git repository. Perhaps readme.md?
+Actual:
+Returned a success message.
+
+20) git push
+
+Prediction: Push the requested commands?
+Actual: Success after requesting csgitlab credentials.
+
+>>> At this point I visited https://https://csgitlab.reading.ac.uk/yf013556/cs1pc20_portfolio and could see that the
+project had been created. This wass clearly a success seeing that previously I was struggling to get this link
+to even exist.
+
+21) git config --global credential.helper cache
+
+Prediction: Will return credentials for the csgitlab website.
+Pre-Comments: That was just a guess.
+Actual: Did not return anything, and a check on CSGitLab shows nothing either.
+Post-Comments: Actually, the instructions sheet said nothing about returning anything and instead this step was simply so I didn't
+have to keep on entering my details.
+
+22) git branch week2
+
+Prediction: Will return an error as no folder named week2 exists?
+Actual: No error, GitLab change, or success message.
+Comments: I am unfamiliar to how the system works with regards to actual actions, so the next few steps might
+have some rocky predictions.
+
+23) git checkout week2
+
+Prediction: None.
+Actual: Returned "Switched to branch 'week2'".
+
+24) mkdir week2
+
+Prediction: Makes a directory called week2. Finally, a familiar command!
+Pre-comments: A quick 'ls' command usage showed that 'week2' does not already exist despite executing 'git branch week2'.
+However, 'week1' does exist as that was what we were doing previously.
+Actual: A quick usage of 'ls' showed that this was successful.
+
+25) echo "# Week 2 exercise observations" > week2/report.md
+
+Prediction: Will write 'Week 2 exercise observations' to a file called report.md. Perhaps in CSGitlab?
+Actual: Correct; created a file called 'report.md' and wrote '# Week 2 exercise observations' as the main contents
+of the file. This was checked using the 'cat' command.
+
+26) git status
+
+Prediction: Will return the same values as steps 5), 8), 12), and 16).
+Actual: Returned:
+'On branch week2
+Untracked files:
+  (use "git add <file>..." to include what will be commited)
+    week2/
+  nothing added to commit but untracked files present (use "git add" to track)'
+Which seems to imply that week2 has not been initialised to add to the git?
+
+27 28 21b)
+git add week2
+git commit -m "added week 2 folder and report.md"
+git push
+
+Prediction: Initialise and push week2 contents onto the branch, before updating the commit to document the changes.
+Actual: Aside from returning a string of success messages (and prompting me to use 'git --set-upstream origin week2', on which case
+I had to enter my credentials), change was initialised on the CSGitLab repository.
+However, I am unable to see the commit?
+
+22b 26b) git checkout master
+
+Prediction: None.
+Actual:
+"Switched to branch 'master'
+Your branch is up-to-date with '/origin/master.'"
+
+23b 25b 28b 32 36 40 42) ls -al
+
+Prediction: Same as 4), returns exhaustive contents of the current directory.
+
+24b) git checkout week2
+
+Prediction: Same as 22b) but for week 2 I suppose.
+Actual: Correct.
+"Switched to branch 'week2'
+Your branch is up-to-date with '/origin/week2.'"
+
+27b) git merge week2
+
+Prediction: Merge all iterations of the week2 branch.
+Actual: Appears to have tried so and returned 'Already up-to-date' which means that it tried to merge the most recent iteration.
+
+29) git push
+
+Prediction: Push the contents onto CSGitLab. May ask for me to use '--set-upstream origin week2' and enter credentials.
+Actual: Did not ask for '--set-upstream origin week2' but did ask for my credentials. After executing, returned
+'Everything up-to-date'.
+
+30 31)
+
+rm -r week2
+rm -r week1
+
+Prediction: Remove week1 and week2 folders.
+Actual: Correct, a quick use of 'ls' command confirmed.
+
+33) git status
+
+Returned: Info about branch being upto-date with '/origin/week2'.
+
+34) git stash
+
+Prediction: Unknown.
+Actual: 'Saved working directory and index state WIP on week2: e8a1352 added week2 folder and report.md'
+
+35) git stash drop
+
+Prediction: Unknown.
+Actual: 'Dropped refs/stash@{0} (93cc639e397eec9c05773f4ca2394437f1ac7c3e)'
+Post-Comments: Wow, what a long overwhelming string.
+
+37) cd ~
+
+Prediction: Will change to the root directory.
+Actual: Correct.
+
+38) cp -r portfolio portfolio_backup
+
+Prediction: 'cp' stands for change something.
+Actual: Correct; it stands for 'copy'. portfolio was duplicated to a folder called 'portfolio_backup'.
+
+39) rm -rf portfolio
+
+Prediction: Will remove the original portfolio folder, leaving only tthe portfolio_backup folder.
+Actual: Correct, portfolio was removed.
+
+41) git clone https://csgitlab.reading.ac.uk/yf013556/cs1pc20_portfolio
+
+Prediction: Clone the portfolio folder on CSGitLab
+Actual: Asked for credentials and seemed to do the job.

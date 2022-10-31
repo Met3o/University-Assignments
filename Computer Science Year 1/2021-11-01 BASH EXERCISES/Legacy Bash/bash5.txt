@@ -1,0 +1,86 @@
+Bash results for the Week 5 exercise.
+
+NOTE: All steps will be listed, however results for simple commands like mkdir and ls will not be documented
+in detail here as they already were fully in the previous bashes and it is obvious what they are going to
+do at this point, unless I am experimenting with them to return a specified type of result. E.g. "cd portfolio"
+is merely "Switch the current working directory to be /portfolio/" and doesn't need to be detailed.
+
+1) cd ~
+
+1b) cd portfolio
+
+2) git switch master
+
+3) git merge greeting
+
+4) git merge vectors
+
+5) git merge framework
+
+extra1) (tree command installed)
+Result: Displayed a tree list but some files and directories were missing, particularly week1. Will have to replace these later.
+
+6) git branch baseconversion
+
+Prediction: Create a baseconversion branch to store our code.
+Actual: Success Later checking seems to detail that a baseconversion branch exists.
+
+7) git switch baseconversion
+
+8) mkdir week5 ; cd week5
+
+9) make -f ../week4/framework/Makefile feature NAME=dec2bin
+
+10) cd dec2bin
+
+11) gcc src/conv.c -o lib/conv.o -c
+
+12) ar rv lib/libconv.a lib/conv.o
+
+13) gcc src/dec2bin.c -o bin/dec2bin -Isrc -lconv -Llib
+
+14) ~/portfolio/week4/framework/test_output/src/test_outputs test/dec2bin_tests
+
+15) cd ~
+
+16) git switch master
+
+17) git merge baseconversion
+
+18) mkdir docs
+
+19) doxygen -g
+
+Prediction: Link to a doxygen API?
+Actual: Initialised a lot of response lines.
+
+20) git add doxyfile
+
+21) commands used: "nano submission_answers.md"
+
+22) commands used: "nano _Frontpage.md"
+
+23) git add submission_answers.md
+
+24) git add _Frontpage.md
+
+25) git commit -m “added configured Doxyfile, answers and frontpage”
+
+26) git push
+
+27) doxygen
+
+Result: Appeared to initialise a lot of response again.
+
+28)  cd docs/latex
+
+29) make
+
+Prediction: Unsure, going to "make" something?
+Actual: Executed a bunch of lines, and seems to have created refman.pdf.
+
+30) git add refman.pdf
+
+31) git commit -m “adding documentation”
+
+32) git push

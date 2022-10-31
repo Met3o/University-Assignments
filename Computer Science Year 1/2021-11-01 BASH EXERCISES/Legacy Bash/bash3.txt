@@ -1,0 +1,199 @@
+Bash results for the Week 3 exercise.
+
+NOTE: All steps will be listed, however results for simple commands like mkdir and ls will not be documented
+in detail here as they already were fully in the previous 2 bashes and it is obvious what they are going to
+do at this point, unless I am experimenting with them to return a specified type of result.
+
+1) cd ~
+
+2) cd portfolio
+
+3) mkdir week3
+
+4) mkdir week3/greeting
+
+Pre-Comments: This should be interesting as week3 already does exist.
+Result: Success
+
+5) cd week3/greeting
+
+6) git branch greeting: Create a branch for greeting.
+
+7) Git switch greeting: Switch to this branch.
+
+8) Command used: cat > greeting.c "<C commands>"
+
+9) gcc - Wall -pedantic -c greeing.c -o greeting.o
+
+Prediction: Will copy greeting.c into greeting.o
+Actual: After opening the .o (object) it appears to have stored the result of this along with some weird encoding 🤨
+Additionally the entire command line and current directory index is also encoded differently, with symbols,
+but accepts commmands and inputs which are typed normally.
+Because opening the object file... is BAD!
+
+10) Command used: cat > test_result.c "<C commands>"
+
+11) Command used: cat > greeting.h "int greet(void)"
+
+12) echo greeting.o >> ~/portfolio/.gitignore
+
+13) echo libgreet.a >> ~/portfolio/.gitignore
+
+14) ar rv libgreet.a greeting.o
+Prediction: Load files from an archive (?)
+Actual: Unsure what it did, but returned:
+"
+ar: creating libgreet.a
+a - greeting.o
+"
+
+15) gcc test_result.c -o test1 -L -lgreet -I.
+Prediction: No idea.
+Actual: Seemed to require me to enter a response.
+
+16) ./test1
+
+Prediction: (Change to test1 in the root directory(?))
+Actual: Printed "Hello, World!" to the terminal. WHAT?
+Post-Comments: At this point I tried to work out the link between test_result.c, greeting.o, greeting.c, test1,
+greeting.h, AND libgreet.a.
+Seems like a lot just for printing one message to the terminal.
+Also, after a quick ls command all files are listed. This includes the ./test1 command, which appears to be highlighted
+in green? So 'test1' is a command here that can be called.
+
+17) git add -A
+
+18) git commit -m "greeting library and greeting test program"
+
+19) git push
+NOTE: Had to use git push --set-upstream origin greeting.
+
+20) cd ~/portfolio/week3
+
+21) git switch master
+
+Prediction: Will switch branches to the master branch as currently on the 'greeting' branch (after step 6).
+Actual: Success.
+
+22) git branch vectors
+
+23) git switch vectors
+
+24) mkdir vectors
+
+Result: Success. ls command used to check.
+
+25) cd vectors
+
+26) commands used: "cat > vector.h <c commands>"
+NOTE when regarding '#include <filename>' vs 'include "filename"':
+-"The difference between these two syntaxes is subtle but important. If a header file is included within <>,
+the preprocessor will search a predetermined directory path to locate the header file.
+If the header file is enclosed in "", the preprocessor will look for the header file in the same directory as the source file."
+-Source: https://techonthenet.com/c_language/directives/include.php
+
+27) commands used: "cat > test_vector_add.c <c commands>"
+
+Post-Comments: In the bash instruction sheet the instructions to enter here were spread over two pages, and unfortunately I
+only saw the first page of it (whoops!) so I had to later rectify this mistake by using 'echo >> test_vector_add.c'.
+Note the double symbols.
+THEN I made the mistake of using a single '>' symbol instead of a double '>>'. So then I had to copy test_vector_add.c to a new
+file, rewrite the first instructions to test_vector_add.c, then append the new file to the end of that.
+THEN I realised that I accidentally put the code from step 28) into the end of this file too, so I recursively had
+to delete that.
+
+28) commands used: "cat > vector.c <c commands>"
+
+29) gcc -Wall -pedantic -c vector.c -o vector.o
+
+Prediction: Unknown.
+Actual: Seems to have returned a screen of multicoloured, technical jargon about the vectors.
+All of these occured inside the add_vector{} function:
+
+  Problem: Apparently the add_vector function was missing a semicolon.
+  Solution: Append the semicolon in the right place.
+
+  Problem: Apparently in (for int i == 0; i<SIZ; i++), the SIZ was undeclared before being called.
+  Solution: Turns out that vector.h was empty for some reason so I rewrote it.
+
+  Problem: Apparently one of the } symbols was out of place(?).
+  Solution: Appended an extra '}' to the end of vector.c, nice and easy.
+In order to even edit these (because I had enough "writing everything all over again" for one day) I had to use the
+'vi' command e.g. 'vi test.c'. Note that for saving the file after editing, use :x.
+https://snipboard.io/ZiHAe2.jpg
+
+30) ar rv libvector.a vector.o
+
+Prediction: Method for returning the object code result?
+Actual: Seems to have created libvector.a, unsure what else it has done though.
+
+31) gcc test_vector_add.c -o test_vector_add1 -L. -lvector -I.
+
+Prediction: Return the result of test_vector_add.c's execution.
+Actual: OH NO LOADS OF ERRORS! Seemingly iterative though so solving one problem will fix many returns.
+https://snipboard.io/p82PHq.jpg
+
+  Problem: "expected declaration specifiers before <bracket type>" (bracket type is '{', '(', and '[')
+  Solution: Some of the bracket types I used were the wrong ones because I didn't read the sheet properly.
+
+32) ./test_vector_add1
+
+Prediction: I'm going to assume that this is a similar type of task to './test1' earlier.
+Actual: Yes. Also returns that "assertion (2==zvec[1]) failed".
+
+33) git add -A
+
+Pre-Comments: At last, finally some easy commands again.
+Prediction: Hard to say what -A means but overall it'll just add a git like it normally does.
+Actual: No output. Use of 'git status' shows the full list of files to be committed (essentially all of them).
+
+34) git commit -m "code to add two vectors of fixed size"
+
+35) git push
+Result: Prompt to use "--set-upstream origin vectors" as currently no upstream branch
+
+36) commands used: "vi test_vector_add.c" (then edited it)
+
+Prediction: Error or failure (not fatal, just returns false?)
+Method: './test_vector_add1'
+Actual: No message appears different (although Assertion 2==zvec[i] still fails.)
+
+37) commands used: "cat > vector.h <c commands>"
+
+38) commands used: "vi vector.c" then edited
+
+39) commands used: "cat > test_vector_dot_product.c <c commands>"
+
+>>> Library Complete!
+
+----------COMPILING THE NEW TEST PROGRAM----------
+
+1) gcc -Wall -pedantic -c vector.c -o vector.o
+Prediction: Will create a new function command from c code.
+Actual: Error 😢
+https://snipboard.io/jDqkwN.jpg
+  Problem: Apparently a ')' was missing before int dot_product(int x[], int y[], int z[]) was declared on line 10.
+  Solution: This actually came from the "vector.h" that was included in the beggining of vector.c. It was missing a ')'
+  at the end and since this inclusion existed locally to vector.c's code, the code running and returning the error,
+  it was treated as in that file. SO I added a ')' at the end of vector.h's code. This solved the problem.
+  There were also other errors returned after this (https://snipboard.io/PiO8zq.jpg) which were solved because I failed
+  to include a semicolon at the end of it as well.
+  THEN it returned more errors that were COMPLETELY BASELESS!!! Double declaration of dot product across the two files
+  https://snipboard.io/qzuVYA.jpg
+  After nearly an hour of trying to fix this i'll just move on.
+  EDIT: Maybe the instructions were wrong and I need to include int z[] in vector.c and test_vector_dot_product.c?
+  Solution: Correct^
+
+2) ar rv libvector.a vector.o
+
+3) gcc test_vector_dot_product.c -o test_vector_dot_product1 -L. -lvector -I.
+Prediction: Assign the function to be callable by running './test_vector_dot_product1'.
+Actual:
+
+4) ./test_vector_dot_product1) No output, but the function is listed.
+
+5) git add -A
+
+6) git commit -m "code to calculate dot product of two vectors of fixed size"
+
+7) git push

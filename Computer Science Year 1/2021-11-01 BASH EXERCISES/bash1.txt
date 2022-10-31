@@ -1,0 +1,280 @@
+Bash results for the Week 1 exercise.
+
+1) mkdir -p $HOME/portfolio/week1 ; cd $HOME/portfolio/week1
+
+Prediction: will create directories/folders in the specified location (HOME/portfolio/week1)
+Pre-Comments: No idea what -p means.
+Actual: Created directory /portfolio/week1$.
+Post-Comments: $HOME appears to be a variable assigned to the current directory before the
+              command was executed, which was student@ubuntuserver.
+
+2) cd ~
+
+Prediction: Will change to the upper directory, /portfolio.
+Actual: Changed to the root directory, student@ubuntuserver (which is 1 directory above
+/portfolio).
+
+3) rm -r portfolio
+
+Prediction: Will remove (delete) /portfolio and its contents.
+Pre-Comments: No idea what -r means.
+Actual: Correct, deleted the portfolio folder and its contents, meaning that the file
+'week1' no longer exists either. This was tested using the ls command to list the contents
+of the student@ubuntuserver root directory.
+Post-Comments: Later on I discovered that -r means "recursive" or "recursively"
+
+4) mkdir -p $HOME/portfolio/week1 & cd $HOME/portfolio/week1
+
+Prediction: Will create the directory and then change to it. 'mkdir' means 'make directory and
+'cd' means 'change directory'.
+Pre-Comments: I still don't know what -p means.
+             -You can use '&'? nice.
+Actual: Error. Twice.
+Post-Comments: I forgot a hyphen (-) before the p the first time causing a "no such file
+or directory" error when trying to create the dir. So when I corrected this I then thought
+the command would run successfully after I rectified my little mistake, but actually
+it turned out that it is STILL erroneous.
+
+5) cd ~
+
+Prediction: Error
+Actual: No real result. The directory remains the same and no contents appear to be touched.
+
+6) rm -r portfolio
+
+Prediction: It will remove portfolio.
+Actual: Correct it seems. portfolio no longer exists.
+
+7) mkdir -p $HOME/portfolio/week1 && cd $HOME/portfolio/week1
+
+Prediction: Will create and change to the specified directory.
+Actual: Correct, changed to /portfolio/week1.
+Post-Comments: $HOME is again used as a placeholder variable for the current directory,
+student@ubuntuServer.
+
+8) echo "Hello World"
+
+Prediction: Will print 'Hello World' to the terminal.
+Actual: Correct. Printed 'Hello World' with no apostrophes or quotation marks.
+
+9) echo Hello, World
+
+Prediction: Error. The way 'Hello' and 'World' are typed here resembles variables, not inherent
+directly addressed strings.
+Actual: Interestingly, no error happened and 'Hello, World' was printed successfully as a single
+string.
+
+10) echo Hello, world; Foo Bar
+
+Prediction: 'Hello, world' <newline> 'Foo bar'
+Pre-Comments: Interesting use of the semicolon.
+Actual: Error ('Command "Foo" not found')
+
+11) echo Hello, World!
+
+Prediction: Since '!' is a factorial operator there may or may not be an error as
+<Hello, World>' is a string.
+Actual: Printed 'Hello, World!' as a string to the terminal correctly.
+
+12) echo "line one";echo "line two"
+
+Prediction: Will print "line one" and "line two" on different lines.
+Actual: Correct, printed as:
+line one
+line two
+
+13) echo "Hello, world > readme"
+
+Prediction: Will simply print 'Hello, world > readme' as a string to the terminal.
+Pre-Comments: '>' is an operator and WOULD output a Boolean (True/False) if it was used
+as a string. However here it will simply print a string as it is within the quotation marks.
+Actual: Correct, printed 'Hello, world > readme'.
+
+14) echo "Hello, world" > readme
+
+Prediction: Will return a Boolean value, False;0.
+Actual: Nothing seems to happen, and the command runs without outputting anything.
+
+15) cat readme
+
+Prediction: 'cat' normally reads the contents of a file, so the entirety of the readme file
+will be printed.
+Pre-Comments: used 'ls' command to ensure that the readme file exists. returned 'readme' as the
+only file.
+Actual: Correct, printed 'Hello, world' to the screen which is presumably the only line of text
+in that file.
+
+16, 17, 18, 19)
+$ example = "Hello, World"
+$ echo $example
+$ echo '$example'
+$ echo "$example"
+
+Predictions:
+    16) nothing outputted but value assigned to 'example' in a memory location
+    17) will output 'Hello, World' which is the content of example, data type string
+    18) will output '$example'
+    19) will output '$example'
+Actual:
+    16) Correct.
+        Post-Comments: Requires to be typed as 'var="abc"', NOT 'var = "abc"' as spaces are
+        erroneous
+    17) Correct, outputted 'Hello World' to the terminal.
+    18) Correct, printed '$example' to the line.
+    19) Printed 'Hello, World' instead of '$example'.
+    Post-Comments: So this means that "" and _ _ are the same when referencing variables.
+
+20) echo "Please enter your name", read $example
+
+Prediction: Hard to say, perhaps it will take in the user's response and then assign it to
+$example.
+Pre-Comments: Will test the contents of $example afterwards using echo command.
+Actual: Printed 'Please enter your name, read Hello, World'.
+
+21) echo "Hello $example"
+
+Prediction: 'Hello Hello, World'
+Pre-Comments: Note the double quotation marks which are the same as none at all.
+Actual: Correct, 'Hello Hello, World'.
+
+22) three=1+1+1;echo $three
+
+Prediction: Will output 3 as an integer.
+Actual: Printed '1+1+1'. No arithmetic done.
+
+23) bc
+
+Prediction: I don't know this one.
+Actual: Printed the copyright patent dates and organisation ('Free Software Fountation, Inc')
+and the fact that there is no warranty. Also provided an option to get extra details by typing
+'warranty'.
+
+24) echo 1+1+1 | bc
+
+Prediction: Will echo '1+1+1' then on a newline will provide warranty/license details.
+Actual: Outputted 3 to the terminal, which is surprising.
+
+25) let three=1+1+1;echo $three
+
+Prediction: Will output 3.
+Actual: Correct, outputted 3.
+
+26) echo date
+
+Prediction: Will output the current date and time down to seconds.
+Actual: Printed 'date'.
+
+27) cal
+
+Prediction: Something calendar-related, perhaps printing a calendar?
+Pre-Comments: cal_ commands were available in PHP when I used that language to write a calendar.
+Actual: Printed a calendar to the terminal for the current month, September 2021. The date, 29, is
+also highlighted.
+Post-Comments: cal <year_number> returns a full year of 12 months of calendars for that year.
+cal <month_number> <year_number> returns the calendar for the month specified in the year specified.
+e.g. cal 09 2021 returns September 2021. If this returns the current month specified then the current
+date will be highlighted.
+
+28) which cal
+
+Prediction: Will return "which calendar" we are currently in.
+Actual: printed a directory, '/usr/bin/cal'.
+
+29) /bin/cal
+
+Prediction: Unsure, does calendar exist in a directory?
+Actual: Printed the September 2021 calendar. So this does the same function
+as just typing 'cal'.
+Post-Comments: This one (29) was my first exercise after taking a lunch break
+so I forgot about the directory from (28).
+
+30) $(which cal)
+
+Prediction: Will do the same as 'which cal', printing the directory.
+Actual: Instead of printing '/usr/bin/cal', printed the current calendar,
+September 2021.
+
+31) 'which cal'
+
+Prediction: '/usr/bin/cal'
+Actual: Error, 'which cal: command not found'
+
+32) echo "The date is $(date)"
+
+Prediction: 'The date is <date> (i.e. 29 September 2021 or equivalent)'
+Actual: Correct. Outputted "The date is Wed 29 Sep 16:53:41 BST 2021"
+
+33) seq 0 9
+
+Prediction: None
+Actual: Outputted all whole numbers from and including 0 to 9, each on a separate
+line.
+Post-Comments: So 'seq' means range print.
+
+34) seq 0 9 | wc -|
+
+Prediction: Hard to say, not sure what the vertical bars or 'wc' will do.
+Actual: Seems to have branched off with a '>' as indicating to input something else?
+        'student@ubuntuServer:~$
+        >_'
+        -Not sure what to enter here. Entering numbers or strings gives an error.
+
+35) seq 0 9 > sequence
+
+Prediction: Will assign values 0 to 9 into a variable called sequence.
+Pre-Comments: So 'seq' is an abbreviation for 'sequence'.
+Actual: It appears to assign value to variable as nothing happens. However trying to
+echo $sequence does not return anything except an extra newline.
+
+36) wc -| < sequence
+
+Prediction: Returns a Boolean value? Due to the < operator
+Pre-Comments: A quick web search says that 'wc' means 'word count'. So does the vertical
+bar mean spaces?
+Actual: It seems to get stuck in an endless loop requesting input from the user and not responding
+(except for interrupts).
+
+37) for I in $(seq 1 9); do echo $I; done
+
+Prediction: Print all values from 1 to 9 recursively.
+Actual: Correct.
+
+38) (echo -n 0; for I in $(seq 1 9); do echo -n +$I; done;echo) | bc
+
+Prediction: Add each number with the next recursively and keep outputting the result.
+Actual: Semi-correct; outputs 45 which is all the values of 1 to 9 added together.
+However does not print the addition of the numbers together. I.e. does not print {1 3 6 10 ... 45}
+
+39) echo -e ‘#include <stdio.h>\nint main(void) \n{\n printf(“Hello World\\n”);\n return 0;\n}’ > hello.c
+
+Prediction: Can't say fully, however there are certain things I can pick out:
+-newline characters ('\n') are being used.
+-"Hello World" is the message being addressed.
+-Results of this operation are printed to a file/memory location.
+-The result will be stored in a file called hello.c.
+Actual: Presumably correct, at least the command executes successfully, and a
+quick ls command use ensures that 'hello.c' is created.
+Post-Comments: Obviously this is a C code file, and I could see that this is C language.
+
+40) cat hello.c
+
+Prediction: Will read the lines from hello.c.
+Actual: Correct, reads a nice script for printing 'Hello World' in C:
+--------------------------------
+    include <stdio.h>
+    int main (void)
+    {
+      printf ("Hello World\n");
+      return 0;
+    }
+--------------------------------
+
+41) gcc hello.c -o hello
+
+Prediction: I don't know.
+Actual: Returns an error expecting either operators, keywords or punctuation.
+
+42) ./ hello
+
+Prediction: Error. /hello does not exist as a directory.
+Actual: Correct, a 'no such file or directory error'.
